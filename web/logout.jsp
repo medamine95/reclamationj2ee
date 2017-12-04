@@ -18,7 +18,6 @@
     
     </head>
     <body>
-
         <% session.invalidate(); %>
         <br><br>
         <br><br>
