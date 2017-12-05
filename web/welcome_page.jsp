@@ -1,3 +1,6 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="beans.User"%>
 <!DOCTYPE html>
@@ -43,47 +46,71 @@
         <br><br>
         <center>  <h1 style="color: white;font-style: italic;"> Déposer une réclamation </h1> </center>
         <br><br>
+        <%
+             
       
-        
       
+       String nom,prenom,city,recla;
+       nom=request.getParameter("nom");
+       prenom=request.getParameter("prenom");
+       city=request.getParameter("city");
+       recla=request.getParameter("recla");     
+       try{
+            //com.mysql.jdbc.Driver
+            //Class.forName("org.apache.derby.jdbc.ClientDriver");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/j2ee","root","");
+            Statement st= con.createStatement();
+            st.executeUpdate("insert into reclamation (nomr,prenom,city,reclamationtxt)values('"+nom+"','"+prenom+"','"+city+"','"+recla+"')");
+            out.println("data inserted");
+           
+           
+       }catch (Exception e){
+           out.println(e);
+       }
+
+      
+            
+            
+            
+            
+            %>
+              
           
-          <form>
+        <form action="welcome_page.jsp" >
   <div class="row">
     <div class="col-md-6 mb-3">
       <label for="validationServer01">First name</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="" required>
+      <input type="text" class="form-control is-valid" id="validationServer01" name="nom" placeholder="First name" value="" required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationServer02">Last name</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="" required>
+      <input type="text" class="form-control is-valid" id="validationServer02" name="prenom" placeholder="Last name" value="" required>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 mb-3">
       <label for="validationServer03">City/State</label>
-      <input type="text" class="form-control is-valid" id="validationServer03" placeholder="City" required>
+      <input type="text" class="form-control is-valid" id="validationServer03" name="city" placeholder="City" required>
    
     </div>
+      <!--
         <div class="form-group col-md-6 mb-3">
   <label for="file">Joindre photo/video:</label>
-  <input id="input-b2" name="input-b2" type="file" class="form-control-file" data-show-preview="false">
+  <input id="input-b2" name="input-b2" type="file" class="form-control-file" name="imgvid" data-show-preview="false">
 
-</div>      
+</div>   !-->    
     </div>
       <div class="row">          
     <div class="form-group col-md-6 mb-3">
   <label for="comment">Saisir Votre Réclamation:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
+  <textarea class="form-control" rows="5" id="comment" name="recla"></textarea>
 </div>  
      
           
       </div>       
-  
- 
-
-              <center> <button class="btn btn-primary" type="submit">Submit form</button>
+             <center> <button class="btn btn-primary" type="submit">Submit form</button>
                        <input type="reset" value="Reset" class="btn btn-primary  " />
- 
               
               </center>
 </form>
