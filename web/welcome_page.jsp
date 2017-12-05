@@ -27,14 +27,14 @@
             HttpSession sessionUser=request.getSession(false);  
             String us=(String)sessionUser.getAttribute("user");
             
-            User user_of_techworld3g = new User();
-            user_of_techworld3g.setUser(us);
-            user_of_techworld3g.GetUser();
+            User user_x = new User();
+            user_x.setUser(us);
+            user_x.GetUser();
             
             out.print("Welcome ");
-            out.print(user_of_techworld3g.getFirst_name());
+            out.print(user_x.getFirst_name());
             out.print(" ");
-            out.print(user_of_techworld3g.getLast_name());
+            out.print(user_x.getLast_name());
             out.print("!!!");
         %>
            <right> <a href="logout.jsp" class="btn btn-success  btn-lg">Log Out</a> </right>

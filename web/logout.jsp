@@ -25,7 +25,7 @@
         <br><br>
     <center> <div class="alert alert-success"> <h1 style="">You have been successfully logged out!</h1> </div> </center>
         <br>
-        <center><a class="btn btn-success  btn-lg" href="login_form.jsp">Log in</a></center>
+        <center><a class="btn btn-success  btn-lg" href="index.jsp">Log in</a></center>
         
     </body>
 </html>
