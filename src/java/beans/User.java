@@ -6,7 +6,7 @@ import java.sql.*;
 import database.Db_Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+//karfa
 public class User 
 {
     private String first_name,last_name,user,pwd;
