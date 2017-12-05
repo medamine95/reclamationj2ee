@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="beans.User"%>
+<%@page import="beans.Admin"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,15 +32,14 @@
             HttpSession sessionUser=request.getSession(false);  
             String us=(String)sessionUser.getAttribute("user");
             
-            User user_x = new User();
-            user_x.setUser(us);
-            user_x.GetUser();
+            Admin Admin_user = new Admin();
+            Admin_user.setUser(us);
+            Admin_user.GetUser();
             
             out.print("Welcome ");
-            out.print(user_x.getFirst_name());
-            out.print(" ");
-            out.print(user_x.getLast_name());
-            out.print("!!!");
+            out.print(Admin_user.getUser());
+            
+            out.print(" !");
         %>
         </h1> </div> </center>
                 
