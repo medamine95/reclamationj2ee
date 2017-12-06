@@ -1,3 +1,4 @@
+
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
@@ -28,6 +29,10 @@
         
         <%  
             HttpSession sessionUser=request.getSession(false);  
+            if (!session.isNew()) {
+ 
+  
+            
             String us=(String)sessionUser.getAttribute("user");
             
             User user_x = new User();
@@ -38,7 +43,9 @@
             out.print(user_x.getFirst_name());
             out.print(" ");
             out.print(user_x.getLast_name());
-            out.print("!!!");
+            out.print("!!!");}  else {
+                  response.sendRedirect("/register_form.jsp");
+            }
         %>
            <right> <a href="logout.jsp" class="btn btn-success  btn-lg">Log Out</a> </right>
         </h1> </div> </center>
@@ -81,11 +88,11 @@
         <form action="welcome_page.jsp" >
   <div class="row">
     <div class="col-md-6 mb-3">
-      <label for="validationServer01">First name</label>
+      <label for="validationServer01">Titre De Réclamation</label>
       <input type="text" class="form-control is-valid" id="validationServer01" name="nom" placeholder="First name" value="" required>
     </div>
     <div class="col-md-6 mb-3">
-      <label for="validationServer02">Last name</label>
+      <label for="validationServer02">Votre nom et prénom</label>
       <input type="text" class="form-control is-valid" id="validationServer02" name="prenom" placeholder="Last name" value="" required>
     </div>
   </div>
@@ -105,7 +112,7 @@
       <div class="row">          
     <div class="form-group col-md-6 mb-3">
   <label for="comment">Saisir Votre Réclamation:</label>
-  <textarea class="form-control" rows="5" id="comment" name="recla"></textarea>
+  <textarea class="form-control" rows="5" id="comment" name="recla" required></textarea>
 </div>  
      
           
