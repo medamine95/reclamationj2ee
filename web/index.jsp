@@ -48,6 +48,9 @@
               <a class="nav-link" href="login_form.jsp">Login</a>
             </li>
             <li class="nav-item">
+               <a class="nav-link" href="login_form_responsable.jsp">Responsable</a>
+            </li>
+            <li class="nav-item">
                <a class="nav-link" href="login_form_admin.jsp">Admin</a>
             </li>
           </ul>

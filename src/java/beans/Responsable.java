@@ -6,13 +6,13 @@ import java.sql.*;
 import database.Db_Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//karfa
-public class User 
+
+public class Responsable 
 {
     private String first_name,last_name,user,pwd;
     boolean res;
     
-    public User()
+    public Responsable()
     {
         first_name="";
         last_name="";
@@ -72,14 +72,14 @@ public class User
     
     //----------------------------------//
       
-    public void RegisterUser()
+    public void RegisterResponsable()
     {
         try
         {    
             Db_Connection dbconn=new Db_Connection();
             Connection myconnection= dbconn.Connection();
 
-            String sqlString="INSERT INTO users (first_name,last_name,username,password) VALUES ('"+first_name+"','"+last_name+"','"+user+"','"+pwd+"')";
+            String sqlString="INSERT INTO responsable (first_name,last_name,username,password) VALUES ('"+first_name+"','"+last_name+"','"+user+"','"+pwd+"')";
             
             Statement myStatement = myconnection.createStatement();
             
@@ -88,13 +88,13 @@ public class User
                 myStatement.executeUpdate(sqlString);
                 myStatement.close();
                 myconnection.close();
-            } catch (SQLException ex) {Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);}
-        } catch (SQLException ex) {Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);}  
+            } catch (SQLException ex) {Logger.getLogger(Responsable.class.getName()).log(Level.SEVERE, null, ex);}
+        } catch (SQLException ex) {Logger.getLogger(Responsable.class.getName()).log(Level.SEVERE, null, ex);}  
     }
     
     //----------------------------------//
     
-    public static boolean LoginUser(String user,String pwd) 
+    public static boolean LoginResponsable(String user,String pwd) 
     {
             boolean check =false;
             try 
@@ -102,7 +102,7 @@ public class User
                 Db_Connection dbconn=new Db_Connection();
                 Connection myconnection= dbconn.Connection();
                 
-                PreparedStatement ps1 =myconnection.prepareStatement("select * from users where username=? and password=?");
+                PreparedStatement ps1 =myconnection.prepareStatement("select * from responsable where username=? and password=?");
 
                 ps1.setString(1, user);
                 ps1.setString(2, pwd);
@@ -124,7 +124,7 @@ public class User
                 Db_Connection dbconn=new Db_Connection();
                 Connection myconnection= dbconn.Connection();
                 
-                String sqlString = "SELECT * FROM users WHERE username = '"+user+"'";
+                String sqlString = "SELECT * FROM responsable WHERE username = '"+user+"'";
                 Statement myStatement = myconnection.createStatement();
                 ResultSet rs=myStatement.executeQuery(sqlString);
 
@@ -139,7 +139,7 @@ public class User
                 myStatement.close();
                 myconnection.close();
                 
-            } catch (SQLException ex) {Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);} 
+            } catch (SQLException ex) {Logger.getLogger(Responsable.class.getName()).log(Level.SEVERE, null, ex);} 
             
     }
     

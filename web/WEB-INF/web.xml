@@ -4,6 +4,10 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controllers.LoginController</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>LoginController_responsable</servlet-name>
+        <servlet-class>controllers.LoginController_responsable</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>AdminController</servlet-name>
         <servlet-class>controllers.AdminController</servlet-class>
@@ -11,6 +15,10 @@
     <servlet>
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controllers.RegisterController</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>RegisterController_responsable</servlet-name>
+        <servlet-class>controllers.RegisterController_responsable</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>reclamation</servlet-name>
@@ -21,12 +29,20 @@
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LoginController_responsable</servlet-name>
+        <url-pattern>/LoginController_responsable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/RegisterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController_responsable</servlet-name>
+        <url-pattern>/RegisterController_responsable</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>reclamation</servlet-name>

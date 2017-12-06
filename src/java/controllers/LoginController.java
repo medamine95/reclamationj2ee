@@ -23,6 +23,10 @@ public class LoginController extends HttpServlet
 
                 user.setUser(request.getParameter("user"));
                 user.setPwd(request.getParameter("pwd"));
+                
+                
+                
+                
 
                 if(User.LoginUser(request.getParameter("user"),request.getParameter("pwd")))
                 {

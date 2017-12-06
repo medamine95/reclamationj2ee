@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
-import beans.User;
+import beans.Responsable;
 import javax.servlet.http.HttpSession;
 
-public class RegisterController extends HttpServlet 
+public class RegisterController_responsable extends HttpServlet 
 {
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException  
@@ -19,21 +19,21 @@ public class RegisterController extends HttpServlet
             PrintWriter out = response.getWriter();
             try 
             {
-                User user = new User();
+                Responsable responsable = new Responsable();
      
-                user.setFirst_name(request.getParameter("first_name"));
-                user.setLast_name(request.getParameter("last_name"));
-                user.setUser(request.getParameter("user"));
-                user.setPwd(request.getParameter("pwd"));
+                responsable.setFirst_name(request.getParameter("first_name"));
+                responsable.setLast_name(request.getParameter("last_name"));
+                responsable.setUser(request.getParameter("user"));
+                responsable.setPwd(request.getParameter("pwd"));
                 
                 
                 
-                
-                user.RegisterUser();
+                responsable.RegisterResponsable(); //SUPRESSOR
+               
                 out.println("<br>");
                 out.println("<br>");
                 out.println("<center>Great!!!</center>");
-                RequestDispatcher rd = request.getRequestDispatcher("login_form.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("login_form_responsable.jsp");
                 rd.forward(request,response);
             } finally {out.close();}
         }
