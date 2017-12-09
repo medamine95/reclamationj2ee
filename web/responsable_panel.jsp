@@ -21,28 +21,41 @@
         %>
 
 <%
-    
-     try{
+         try{
             //com.mysql.jdbc.Driver
             //Class.forName("org.apache.derby.jdbc.ClientDriver");
             Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/j2ee","root","");
             Statement statement = null;
             ResultSet resultSet = null;
+            ResultSet resultSet2 = null;
+
             String recla=null;
-      
+
             recla =request.getParameter("recla");
-          
+
             Statement st= con.createStatement();
+
+        //    st.executeUpdate("Update reclamation set replytxt = '"+recla+"' where reclamation.reclamationtxt='fama zebla fel kayas' ");
+     
+
+            Statement st2= con.createStatement();
+            String sql2 ="Insert into reply (id_reply) Select id from reclamation  ";
+            st2.executeUpdate(sql2);
             
-            st.executeUpdate("Update reclamation set replytxt = '"+recla+"' where reclamation.reclamationtxt='fama zebla fel kayas' ");
+         
+            
+            Statement st3= con.createStatement();
+            String sql3 ="Update reply, reclamation set replytxt = '"+recla+"' where reply.id_reply=reclamation.id";
+            st3.executeUpdate(sql3);
            
-            statement=con.createStatement();
+             statement=con.createStatement();
             String sql ="SELECT * FROM reclamation";
             resultSet = statement.executeQuery(sql);
-                
             
-
+           
+           
+       
       
     %>
 <!DOCTYPE html>
@@ -106,7 +119,7 @@
                                 <p class="media-comment">
                                 <%=resultSet.getString("reclamationtxt") %>
                                 <hr>
-                                <h5 style="color: red;"> <%=resultSet.getString("replytxt") %> <h5>
+                                <h5 style="color: red;"> </h5>
 
                               </p>
                            

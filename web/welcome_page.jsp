@@ -68,7 +68,6 @@
             Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/j2ee","root","");
             Statement st= con.createStatement();
-            
             st.executeUpdate("insert into reclamation (nomr,prenom,city,reclamationtxt)values('"+nom+"','"+prenom+"','"+city+"','"+recla+"')"); 
             
            
