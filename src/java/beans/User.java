@@ -117,7 +117,7 @@ public class User
     
     //----------------------------------//
     
-    public void GetUser()
+    public  void GetUser()
     {
             try 
             {      

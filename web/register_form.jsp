@@ -18,6 +18,22 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     
+    <%
+        try{
+               
+            HttpSession sessionUser=request.getSession(false);  
+            String us=(String)sessionUser.getAttribute("user");
+            
+           
+    
+   
+        }catch(Exception e){e.printStackTrace();}
+        
+
+        %> 
+    
+    
+    
     </head>
     <body>
         <div class="container text-center centered mycenter">
@@ -54,9 +70,11 @@
                        
                           <div class="form-group">
                            <input type="reset" value="Reset" class="btn btn-primary btn-block btn-lg" />
-                            <input type="submit" value="Register " class="btn btn-success btn-block btn-lg">
+                            <input type="submit" value="Register " name="sub" class="btn btn-success btn-block btn-lg">
                           </div>
             </center>
+                       
+                       
         </form>
          
              </center>

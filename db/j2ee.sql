@@ -2,10 +2,10 @@
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  mer. 06 déc. 2017 à 20:38
--- Version du serveur :  10.1.28-MariaDB
--- Version de PHP :  7.1.11
+-- Host: 127.0.0.1
+-- Generation Time: Dec 10, 2017 at 09:40 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `j2ee`
+-- Database: `j2ee`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `loginadmin`
+-- Table structure for table `loginadmin`
 --
 
 CREATE TABLE `loginadmin` (
@@ -34,7 +34,7 @@ CREATE TABLE `loginadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `loginadmin`
+-- Dumping data for table `loginadmin`
 --
 
 INSERT INTO `loginadmin` (`user`, `password`) VALUES
@@ -43,36 +43,55 @@ INSERT INTO `loginadmin` (`user`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reclamation`
+-- Table structure for table `reclamation`
 --
 
 CREATE TABLE `reclamation` (
   `id` int(25) NOT NULL,
-  `nomr` varchar(25) NOT NULL,
-  `prenom` varchar(25) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `reclamationtxt` varchar(500) NOT NULL
+  `nomr` varchar(25) DEFAULT NULL,
+  `prenom` varchar(25) DEFAULT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `reclamationtxt` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `reclamation`
+-- Dumping data for table `reclamation`
 --
 
 INSERT INTO `reclamation` (`id`, `nomr`, `prenom`, `city`, `reclamationtxt`) VALUES
-(1, 'null', 'null', 'null', 'null'),
-(2, 'Mohamed', 'Amine', 'Tunis', 'oh yeah '),
-(3, 'null', 'null', 'null', 'null'),
-(4, 'KILLED', 'FOR', 'VALAHALA', 'fama zebla lahné ijew a3mlou tala bélehi  ! '),
-(6, 'null', 'null', 'null', 'null'),
-(7, 'null', 'null', 'null', 'null'),
-(8, 'null', 'null', 'null', 'null'),
 (9, 'null', 'null', 'null', 'null'),
-(10, 'null', 'null', 'null', 'null');
+(10, 'Problem', 'Troll', 'Tunis', 'fuck '),
+(11, 'null', 'null', 'null', 'null');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `responsable`
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `id_reply` int(8) NOT NULL,
+  `replytxt` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`id_reply`, `replytxt`) VALUES
+(9, 'null'),
+(10, 'null'),
+(9, 'null'),
+(10, 'null'),
+(9, 'null'),
+(10, 'null'),
+(9, 'null'),
+(10, 'null');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `responsable`
 --
 
 CREATE TABLE `responsable` (
@@ -83,21 +102,17 @@ CREATE TABLE `responsable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `responsable`
+-- Dumping data for table `responsable`
 --
 
 INSERT INTO `responsable` (`first_name`, `last_name`, `username`, `password`) VALUES
-('KILL', 'BILL', 'REVED', '123'),
-('KILL', 'BILL', 'REVED', '123'),
-('KILL', 'KILL', 'KILL', '123'),
-('null', 'null', 'null', 'null'),
-('karfewi', 'med amine', 'med', '123'),
-('null', 'null', 'null', 'null');
+('ghhjgh', 'ghfgf', 'fgfgh', 'ghgj'),
+('troll', 'bob', 'bob', '123');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -108,53 +123,65 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`first_name`, `last_name`, `username`, `password`) VALUES
-('', '', 'ghfhgf', ''),
-('anis', 'haweri', 'karfewi', '123'),
-('aze', 'er', 'er', 'erer'),
-('ghg', 'fghfgh', 'ohyeah', '12'),
-('hmidi', 'marwen', 'karfa3', '123'),
-('hukj', '', '', ''),
-('KILL', 'BILL', 'v2', 'hunt'),
-('med', 'amine', 'mohamed', '123'),
-('sayeb', 'ya3n', 'REV', '123'),
-('supressed', 'responsable', 'Rolo', '123'),
-('taib', 'adhibi', 'karfa', '123');
+('dsqdsqd', 'qdqsd', 'qsdqsd', 'qsdsqdsqd');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `loginadmin`
+-- Indexes for table `loginadmin`
 --
 ALTER TABLE `loginadmin`
   ADD PRIMARY KEY (`user`);
 
 --
--- Index pour la table `reclamation`
+-- Indexes for table `reclamation`
 --
 ALTER TABLE `reclamation`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `id` (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD KEY `id_reply` (`id_reply`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`first_name`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `reclamation`
+-- AUTO_INCREMENT for table `reclamation`
 --
 ALTER TABLE `reclamation`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `id_reply` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `reply`
+--
+ALTER TABLE `reply`
+  ADD CONSTRAINT `fkey` FOREIGN KEY (`id_reply`) REFERENCES `reclamation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -5,20 +5,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="beans.Responsable"%>
 <%@page import="java.io.PrintWriter"%>
-   <%  
-            HttpSession sessionUser=request.getSession(false);  
-            String us=(String)sessionUser.getAttribute("user");
-            
-            Responsable Responsable = new Responsable();
-            Responsable.setUser(us);
-            Responsable.GetUser();
-            
-            out.print("Welcome ");
-            out.print(Responsable.getUser());
-            
-            
-            out.print(" !");
-        %>
+
 
 <%
          try{
@@ -37,25 +24,19 @@
             Statement st= con.createStatement();
 
         //    st.executeUpdate("Update reclamation set replytxt = '"+recla+"' where reclamation.reclamationtxt='fama zebla fel kayas' ");
-     
-
+    
             Statement st2= con.createStatement();
-            String sql2 ="Insert into reply (id_reply) Select id from reclamation  ";
+            String sql2 ="INSERT INTO reply (id_reply) SELECT id FROM reclamation   ";
             st2.executeUpdate(sql2);
-            
          
-            
             Statement st3= con.createStatement();
-            String sql3 ="Update reply, reclamation set replytxt = '"+recla+"' where reply.id_reply=reclamation.id";
+            String sql3 ="Update reply, reclamation set replytxt = '"+recla+"' ";
             st3.executeUpdate(sql3);
            
-             statement=con.createStatement();
-            String sql ="SELECT * FROM reclamation";
+            statement=con.createStatement();
+            String sql ="select distinct * FROM reclamation,reply,responsable";
             resultSet = statement.executeQuery(sql);
-            
-           
-           
-       
+      
       
     %>
 <!DOCTYPE html>
@@ -86,6 +67,20 @@
         
     <center> <div class="alert alert-success"> <h1>
         
+                 <%  
+            HttpSession sessionUser=request.getSession(false);  
+            String us=(String)sessionUser.getAttribute("user");
+            
+            Responsable Responsable = new Responsable();
+            Responsable.setUser(us);
+            Responsable.GetUser();
+            
+            out.print("Welcome ");
+            out.print(Responsable.getUser());
+            
+            
+            out.print(" !");
+        %>
      
         </h1> </div> </center>
                 
@@ -119,12 +114,15 @@
                                 <p class="media-comment">
                                 <%=resultSet.getString("reclamationtxt") %>
                                 <hr>
-                                <h5 style="color: red;"> </h5>
+                                <h5 style="color: red;">  <%  Responsable :        out.print(Responsable.getUser());%>
+ </h5>
+                                    
+                                <p>     <%= resultSet.getString("replytxt") %> </p>
 
                               </p>
                            
                               <form action="responsable_panel.jsp">
-                                <textarea class="form-control" rows="5" id="comment" name="recla" required></textarea>
+                                <textarea class="form-control" rows="3" id="comment" name="recla" required></textarea>
                               <hr>
                               <button type="submit"class="btn btn-info btn-circle text-uppercase" href="#" id="reply" ><span class="glyphicon glyphicon-share-alt"></span> Reply </button>    
                                       </form>

@@ -25,16 +25,13 @@ public class RegisterController extends HttpServlet
                 user.setLast_name(request.getParameter("last_name"));
                 user.setUser(request.getParameter("user"));
                 user.setPwd(request.getParameter("pwd"));
-                
-                
-                
-                
+            
                 user.RegisterUser();
                 out.println("<br>");
                 out.println("<br>");
                 out.println("<center>Great!!!</center>");
-                RequestDispatcher rd = request.getRequestDispatcher("login_form.jsp");
-                rd.forward(request,response);
+                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                 rd.forward(request,response);
             } finally {out.close();}
         }
            

@@ -4,6 +4,8 @@
     Author     : Med Amine
 --%>
  
+<%@page import="java.io.PrintWriter"%>
+<%@page import="beans.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -12,6 +14,12 @@
 
 
 <%
+    
+    
+                   
+        
+            PrintWriter tr=response.getWriter();
+           
     
      try{
             //com.mysql.jdbc.Driver
@@ -37,7 +45,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>For A better country</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +73,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login_form.jsp">Login</a>
@@ -89,15 +96,8 @@
       <li class="nav-item active">
         <a class="nav-link" href="welcome_page.jsp">Déposer une réclamation <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+   
+     
     </ul>
   </div>
     </nav>
@@ -172,7 +172,6 @@
 
     <!-- Footer -->
    
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
